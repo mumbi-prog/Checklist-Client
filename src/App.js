@@ -1,7 +1,12 @@
-import './App.css';
+import React from 'react'
+import NewChecklist from './components/checklist/Checklist'
 
 function App() {
-  return 
+  return (
+    <div>
+      <NewChecklist/>
+    </div>
+  )
 }
 
-export default App;
+export default App
