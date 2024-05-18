@@ -68,7 +68,44 @@ function NewChecklist(){
         Date:
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
       </label>
-    
+      <table>
+        <thead>
+         <tr>
+            <th className='items-header'>Items</th>
+            <th className='status-header'>Status</th>
+            <th className='remarks-header'>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories && categories.length > 0 && categories.map((category) => (
+            <React.Fragment key={category.id}>
+              <tr>
+                <td colSpan="3"><strong>{category.name}</strong></td>
+              </tr>
+              {category.items.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>
+                    <select value={status[item.id] || 'OK'} onChange={(e) => handleStatusChange(item.id, e.target.value)}>
+                      <option value="OK">OK</option>
+                      <option value="NOT_OK">NOT OK</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Remark"
+                      value={remarks[item.id] || ''}
+                      onChange={(e) => handleRemarkChange(item.id, e.target.value)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={handleSubmit}>Save</button>
     </div>
   );
 };
