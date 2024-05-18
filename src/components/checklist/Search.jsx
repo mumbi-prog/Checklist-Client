@@ -43,7 +43,7 @@ function SearchChecklist(){
       {checklist && (
         <div>
           <h3 className='h3 text-center color:button-color underline mt-[12px] font-medium' >Checklist for {checklist.date}</h3>
-          <table>
+          <table className='search-table mb-[50px]'>
             <thead>
                 <tr>
                     <th className='items-header'>Items</th>
