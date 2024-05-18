@@ -34,11 +34,34 @@ nav{
     color:#092726;
     text-align: center;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 25px;
 }
-.search-wrapper label, button{
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+.search-container {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+.search-label {
+    margin-bottom: 1rem;
+}
+.search-button {
+    background-color: var(--button-color);
+    border: 1px solid #092726;
+    color: #092726;
+    height: 35px;
+    width: 130px;
+    border-radius: 50px;
+    transition: transform 0.3s;
+}
+.search-button:hover {
+    transform: scale(1.05);
+    background-color: #092726;
+    color: white;
 }
 .date{
     padding: 5% 40%;
