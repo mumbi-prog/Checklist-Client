@@ -64,7 +64,7 @@ function NewChecklist(){
           <h3>Dakawou Transport Limited</h3>
           <h3>Daily ICT Checklist</h3>
         </div>
-        <button className='logout-btn'>Logout</button>
+        <button className='logout-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mb-[25px] transition-transform transform hover:scale-105 hover:bg-white hover:text-button-color pointer'>Logout</button>
       </nav>
       <label className='date'>
         Date:
@@ -107,7 +107,7 @@ function NewChecklist(){
           ))}
         </tbody>
       </table>
-      <button onClick={handleSubmit} className='save-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105'>Save</button>
+      <button onClick={handleSubmit} className='save-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[40%] mb-[25px] transition-transform transform hover:scale-105'>Save</button>
     </div>
   );
 };
