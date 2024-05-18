@@ -57,7 +57,17 @@ function NewChecklist(){
 
   return (
     <div>
-     
+      <nav className='w-full p-[10px] justify-between'>
+        <img src={logo} alt="logo_image" className='w-[100px] h-auto '/>
+        <div>
+          <h3>Dakawou Transport Limited</h3>
+          <h3>Daily ICT Checklist</h3>
+        </div>
+      </nav>
+      <label>
+        Date:
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+      </label>
     
     </div>
   );
