@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../api/Api';
-import checklist from './checklist.css'
+import checklist from './checklist.css';
+import logo from '../logo.png';
 
 function SearchChecklist(){
   const [date, setDate] = useState('');
@@ -18,6 +19,14 @@ function SearchChecklist(){
 
   return (
     <div>
+        <nav className='nav-bar'>
+        <img src={logo} alt="logo_image" className='w-[80px] h-auto '/>
+        <div className='nav-titles text-xl font-bold'>
+          <h3>Dakawou Transport Limited</h3>
+          <h3>Daily ICT Checklist</h3>
+        </div>
+        <button className='logout-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-105 hover:bg-white hover:text-button-color pointer'>Logout</button>
+      </nav>
       <h2>Search Checklist by Date</h2>
       <label>
         Date:
