@@ -27,16 +27,20 @@ function SearchChecklist(){
         </div>
         <button className='logout-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-105 hover:bg-white hover:text-button-color pointer'>Logout</button>
       </nav>
-      <h2>Search Checklist by Date</h2>
-      <label>
-        Date:
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-      </label>
-      <button onClick={handleSearch}>Search</button>
+      
+      <div className='search-wrapper'>
+        <h2 className='search-heading'>Search Checklist by Date</h2>
+        <label >
+            Date:
+            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        </label>
+        <button onClick={handleSearch}>Search</button>
+      </div>
+     
 
       {checklist && (
         <div>
-          <h3>Checklist for {checklist.date}</h3>
+          <h3 className='h3 text-center color:button-color underline mt-[12px] font-medium' >Checklist for {checklist.date}</h3>
           <table>
             <thead>
                 <tr>
