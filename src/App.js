@@ -1,5 +1,5 @@
 import React from 'react'
-import NewChecklist from './components/checklist/Checklist'
+import NewChecklist from './components/checklist/NewChecklist'
 
 function App() {
   return (
