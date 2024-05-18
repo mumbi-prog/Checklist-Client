@@ -30,11 +30,13 @@ function SearchChecklist(){
       
       <div className='search-wrapper'>
         <h2 className='search-heading'>Search Checklist by Date</h2>
-        <label >
+        <div className='search-container'>
+          <label className='search-label'>
             Date:
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        </label>
-        <button onClick={handleSearch}>Search</button>
+          </label>
+          <button className='search-button' onClick={handleSearch}>Search</button>
+        </div>
       </div>
      
 
