@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/Api';
 import logo from '../logo.png'
+import checklist from './checklist.css'
 
 function NewChecklist(){
   const [date, setDate] = useState('');
@@ -57,16 +58,17 @@ function NewChecklist(){
 
   return (
     <div>
-      <nav className='w-full p-[10px] justify-between'>
-        <img src={logo} alt="logo_image" className='w-[100px] h-auto '/>
-        <div>
+      <nav className='nav-bar'>
+        <img src={logo} alt="logo_image" className='w-[80px] h-auto '/>
+        <div className='nav-titles text-xl font-bold'>
           <h3>Dakawou Transport Limited</h3>
           <h3>Daily ICT Checklist</h3>
         </div>
+        <button className='logout-btn'>Logout</button>
       </nav>
-      <label>
+      <label className='date'>
         Date:
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className='date-input'/>
       </label>
       <table>
         <thead>
@@ -105,7 +107,7 @@ function NewChecklist(){
           ))}
         </tbody>
       </table>
-      <button onClick={handleSubmit}>Save</button>
+      <button onClick={handleSubmit} className='save-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105'>Save</button>
     </div>
   );
 };
