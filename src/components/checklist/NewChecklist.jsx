@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api/Api';
-import logo from '../logo.png'
-import checklist from './checklist.css'
+import logo from '../logo.png';
+import './checklist.css';
 
-function NewChecklist(){
+function NewChecklist({ setUser }) {
   const [date, setDate] = useState('');
   const [categories, setCategories] = useState([]);
   const [status, setStatus] = useState({});
   const [remarks, setRemarks] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await api.get('/categories');
-        console.log('Fetched categories successfully:', response.data);
         setCategories(response.data);
       } catch (error) {
         console.error('Cannot fetch the categories, try again later:', error);
@@ -56,25 +57,31 @@ function NewChecklist(){
     }
   };
 
+  const handleLogout = () => {
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <div>
-      <nav className='nav-bar'>
-        <img src={logo} alt="logo_image" className='w-[80px] h-auto '/>
-        <div className='nav-titles text-xl font-bold'>
-          <h3>Dakawou Transport Limited</h3>
-          <h3>Daily ICT Checklist</h3>
-        </div>
-        <button className='auth-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-101  transition duration-300 ease-in hover:bg-white hover:text-button-color pointer ease-in'>Logout</button>
-      </nav>
-      <div className='w-[100%] bg-yellow no-wrap flex justify-center'>
-        <label className='list-date flex items-center'>
-          Enter date:
-          <input  type="date"  value={date} onChange={(e) => setDate(e.target.value)} className='date-input ml-2 w-[200px] border-2 border-button-color rounded pointer text-center italic placeholder-italic placeholder-gray-400'/>
-        </label>
-      </div>
+        <nav className='nav-bar'>
+          <img src={logo} alt="logo_image" className='w-[80px] h-auto pointer' onClick={() => navigate('/new-checklist')} />
+          <div className='nav-titles text-xl font-bold'>
+            <h3>Dakawou Transport Limited</h3>
+            <h3>Daily ICT Checklist</h3>
+          </div>
+          <button className='auth-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-101 transition duration-300 ease-in hover:bg-white hover:text-button-color pointer ease-in' onClick={handleLogout}>Logout</button>
+        </nav>
+       <div className='w-[100%] bg-yellow no-wrap flex justify-center relative'>
+         <label className='list-date flex items-center'>
+           Enter date:
+           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className='date-input ml-2 w-[200px] border-2 border-button-color rounded pointer text-center italic placeholder-italic placeholder-gray-400' />
+         </label>
+         <button className='find-record-btn  bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mb-[25px] transition-transform transform hover:scale-101 transition duration-300 ease-in hover:bg-white hover:text-button-color pointer ease-in absolute right-[1%]' onClick={() => navigate('/search-checklist')}>Find record</button>
+       </div>
       <table>
         <thead>
-         <tr>
+          <tr>
             <th className='items-header'>Items</th>
             <th className='status-header'>Status</th>
             <th className='remarks-header'>Remarks</th>
@@ -96,7 +103,7 @@ function NewChecklist(){
                     </select>
                   </td>
                   <td>
-                    <input type="text" value={remarks[item.id] || ''} onChange={(e) => handleRemarkChange(item.id, e.target.value)} className='w-[95%] mx-[2%] outline-none'/>
+                    <input type="text" value={remarks[item.id] || ''} onChange={(e) => handleRemarkChange(item.id, e.target.value)} className='w-[95%] mx-[2%] outline-none' />
                   </td>
                 </tr>
               ))}
@@ -107,6 +114,7 @@ function NewChecklist(){
       <button onClick={handleSubmit} className='save-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[40%] mb-[25px] transition-transform transform hover:scale-105'>Save</button>
     </div>
   );
-};
+}
 
 export default NewChecklist;
+
