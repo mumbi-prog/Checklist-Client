@@ -47,7 +47,7 @@ function NewChecklist(){
 
     try {
       await api.post('/checklists', checklist);
-      alert('Checklist has been saved to database.');
+      alert('Checklist has been saved.');
       setDate('');
       setStatus({});
       setRemarks({});
@@ -66,10 +66,12 @@ function NewChecklist(){
         </div>
         <button className='logout-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-105 hover:bg-white hover:text-button-color pointer'>Logout</button>
       </nav>
-      <label className='date'>
-        Date:
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className='date-input'/>
-      </label>
+      <div className='w-[100%] bg-yellow no-wrap flex justify-center'>
+        <label className='list-date flex items-center'>
+          Enter date:
+          <input  type="date"  value={date} onChange={(e) => setDate(e.target.value)} className='date-input ml-2 w-[200px] border-2 border-button-color rounded pointer text-center italic placeholder-italic placeholder-gray-400'/>
+        </label>
+      </div>
       <table>
         <thead>
          <tr>
@@ -88,18 +90,13 @@ function NewChecklist(){
                 <tr key={item.id}>
                   <td>{item.name}</td>
                   <td>
-                    <select value={status[item.id] || 'OK'} onChange={(e) => handleStatusChange(item.id, e.target.value)}>
+                    <select value={status[item.id] || 'OK'} onChange={(e) => handleStatusChange(item.id, e.target.value)} className='px-[18%] outline-none'>
                       <option value="OK">OK</option>
                       <option value="NOT_OK">NOT OK</option>
                     </select>
                   </td>
                   <td>
-                    <input
-                      type="text"
-                      placeholder="Remark"
-                      value={remarks[item.id] || ''}
-                      onChange={(e) => handleRemarkChange(item.id, e.target.value)}
-                    />
+                    <input type="text" value={remarks[item.id] || ''} onChange={(e) => handleRemarkChange(item.id, e.target.value)} className='w-[95%] mx-[2%] outline-none'/>
                   </td>
                 </tr>
               ))}
