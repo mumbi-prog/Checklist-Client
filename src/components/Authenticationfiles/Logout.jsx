@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import api from '../api/Api';
 
-function Logout() {
+const Logout = ({ setUser }) => {
+  const handleLogout = async () => {
+    try {
+      await api.delete('/logout');
+      setUser(null);
+      alert('Logout successful');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
+
   return (
-    <div>Logout</div>
-  )
-}
+    <button onClick={handleLogout}>Logout</button>
+  );
+};
 
-export default Logout
+export default Logout;
