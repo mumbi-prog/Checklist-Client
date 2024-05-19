@@ -19,7 +19,20 @@ function Login({ setUser }){
     }
   };
 
-  return
+  return (
+    <form onSubmit={handleSubmit} className='login-form bg-button-color cover'>
+      <h2>DTL ICT CHECKLIST</h2>
+      <label className='auth-label'>
+        Email:
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      </label>
+      <label className='auth-label'>
+        Password:
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      </label>
+      <button type="submit" className='auth-btn'>Login</button>
+    </form>
+  );
 };
 
 export default Login;
