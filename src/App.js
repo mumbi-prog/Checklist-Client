@@ -1,17 +1,13 @@
 import React from 'react'
 // import NewChecklist from './components/checklist/NewChecklist'
-// import SearchChecklist from './components/checklist/Search'
-import Login from './components/Authenticationfiles/Login'
+import SearchChecklist from './components/checklist/Search'
 
 function App() {
   return (
     <div>
-      {/* <NewChecklist/> */}
-      <Login/>
+      <SearchChecklist/>
     </div>
   )
 }
 
 export default App
-
-
