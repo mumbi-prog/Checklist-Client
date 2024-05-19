@@ -64,7 +64,7 @@ function NewChecklist(){
           <h3>Dakawou Transport Limited</h3>
           <h3>Daily ICT Checklist</h3>
         </div>
-        <button className='logout-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-105 hover:bg-white hover:text-button-color pointer'>Logout</button>
+        <button className='auth-btn bg-button-color border-white text-white h-[35px] w-[130px] rounded-full align-center mt-[20px] mb-[25px] transition-transform transform hover:scale-101  transition duration-300 ease-in hover:bg-white hover:text-button-color pointer ease-in'>Logout</button>
       </nav>
       <div className='w-[100%] bg-yellow no-wrap flex justify-center'>
         <label className='list-date flex items-center'>

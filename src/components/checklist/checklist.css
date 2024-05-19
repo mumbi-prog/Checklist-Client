@@ -14,21 +14,11 @@ nav{
     justify-content: space-between;
 }
 
-/* span{
-    margin-left: 5px;
-} */
 .nav-titles{
     color: white;
     padding-top: 10px;
     font-size: large;
 }
-/* .logout-btn{
-    color: #f2f2f2;
-    border: 2px solid #f2f2f2;
-    margin: 25px;
-    width: 70px;
-    border-radius: 20%;
-} */
 
 .search-heading{
     color:#092726;
@@ -87,4 +77,8 @@ th, td {
 }
 th {
     background-color: #f2f2f2;
+}
+
+.auth-btn{
+    border: 1px solid white;
 }
