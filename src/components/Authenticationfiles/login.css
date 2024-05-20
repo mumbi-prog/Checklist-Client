@@ -30,9 +30,9 @@ h2{
     margin-bottom: 10px;
 }
 
-login-btn {
+.login-btn {
     position: relative;
-    background-color: transparent;
+    background-color: #9898f8;
     border-radius:25px;
     padding: 10px;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ login-btn {
     overflow: hidden;
     margin-top: 20px;
 }
-login-btn::before {
+.login-btn::before {
     content: "";
     background-color: #7676df;
     border: none;
@@ -61,7 +61,7 @@ login-btn::before {
     transition: width 700ms ease-in-out;
     display: inline-block;
 }
-login-btn:hover::before {
+.login-btn:hover::before {
     width: 100%;
     border: none;
 }
