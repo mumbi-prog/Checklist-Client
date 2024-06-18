@@ -1,5 +1,6 @@
 {
   "name": "checklist-app",
+  "homepage": "https://itchecklist.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
