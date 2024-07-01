@@ -43,7 +43,7 @@ function SearchChecklist({ setUser }) {
     const imgWidth = pdf.internal.pageSize.getWidth();
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
     let heightLeft = imgHeight;
-    let position = 0;
+    let position = 20;
 
     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
     heightLeft -= pdf.internal.pageSize.getHeight();
