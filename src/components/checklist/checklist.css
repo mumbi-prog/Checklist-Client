@@ -41,7 +41,7 @@ nav{
 }
 .search-button {
     background-color: var(--button-color);
-    border: 1px solid #092726;
+    border: 2px solid #092726;
     color: #092726;
     height: 35px;
     width: 130px;
@@ -81,4 +81,12 @@ th {
 
 .auth-btn{
     border: 1px solid white;
+}
+/*  */
+.new-record-btn, .generate-pdf-btn{
+    transition: all .3s ease-in;
+}
+
+.new-record-btn:hover, .generate-pdf-btn:hover{
+    border: 2px solid rgb(5, 53, 21);
 }
