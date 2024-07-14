@@ -19,7 +19,7 @@ function App() {
         </div>
         <hr />
         <footer className="py-2 bg-gray-200 text-center text-xs font-semibold">
-          <p>&copy; 2024 DTL. All rights reserved. Site created by Sylvia Mumbi.</p>
+          <p>&copy; 2024 DTL. All rights reserved. By Sylvia Mumbi.</p>
         </footer>
       </Router>
     </div>
