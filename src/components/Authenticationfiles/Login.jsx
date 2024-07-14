@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/Api';
@@ -7,10 +6,12 @@ import './login.css';
 function Login({ setUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await api.post('/login', { email, password });
       if (response.data.status === 'logged_in') {
@@ -23,12 +24,14 @@ function Login({ setUser }) {
     } catch (error) {
       console.error('Error logging in:', error);
       alert('Invalid email or password');
+    } finally {
+      setIsLoading(false); 
     }
   };
 
   return (
     <div className='form-container bg-button-color cover'>
-      <form onSubmit={handleSubmit} className='login-form'>
+      <form onSubmit={handleSubmit} className='login-form relative'>
         <h2>DTL ICT CHECKLIST</h2>
         <div className='d2 block'>
           <label className='auth-label block text-sm font-medium text-white-900'>Email:</label>
@@ -53,9 +56,14 @@ function Login({ setUser }) {
           />
         </div>
         <button type="submit" className='login-btn'>Login</button>
+        {isLoading && (
+          <div className="loader-overlay">
+            <div className="loader"></div>
+          </div>
+        )}
       </form>
     </div>
   );
-};
+}
 
 export default Login;
